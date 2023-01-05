@@ -1,21 +1,16 @@
 # 7_C.py
 
 maxr, maxc = [int(e) for e in input().split()]
-m = [[]] * maxr
+m = [[]] * (maxr + 1)
 for i in range(maxr):
-    m[i] = [int(e) for e in input().split()]
+    m[i] = [int(e) for e in input().split()] + [0]
+m[maxr] = [0] * (maxc + 1)
 
-ct = [0] * maxc
 for i in range(maxr):
-    rt = 0
     for j in range(maxc):
-        print(m[i][j], end=" ")
-        rt += m[i][j]
-        ct[j] += m[i][j]
-    print(rt)
+        m[i][maxc] += m[i][j]
+        m[maxr][j] += m[i][j]
+        m[maxr][maxc] += m[i][j]
 
-gt = 0
-for j in range(maxc):
-    print(ct[j], end=" ")
-    gt += ct[j]
-print(gt)
+for i in range(maxr + 1):
+    print(*m[i])
