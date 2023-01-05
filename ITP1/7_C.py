@@ -12,5 +12,5 @@ for i in range(maxr):
         m[maxr][j] += m[i][j]
         m[maxr][maxc] += m[i][j]
 
-for i in range(maxr + 1):
-    print(*m[i])
+for r in m:
+    print(*r)
