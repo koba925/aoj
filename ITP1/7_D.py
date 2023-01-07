@@ -20,11 +20,9 @@ def mat_mul(a, b):
     l = len(b[0])
 
     c = mat_init(n, l)
-    mat_print(c)
     for i in range(n):
         for j in range(l):
-            for k in range(m):
-                c[i][j] += a[i][k] * b[k][j]
+            c[i][j] = sum([a[i][k] * b[k][j] for k in range(m)])
 
     return c
 
@@ -36,7 +34,4 @@ def mat_print(a):
 
 a = mat_read(n, m)
 b = mat_read(m, l)
-mat_print(a)
-mat_print(b)
-
 mat_print(mat_mul(a, b))
