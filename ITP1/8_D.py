@@ -3,4 +3,4 @@
 s = input()
 p = input()
 
-print("Yes" if (s + s).find(p) >= 0 else "No") 
+print("Yes" if p in s + s else "No") 
